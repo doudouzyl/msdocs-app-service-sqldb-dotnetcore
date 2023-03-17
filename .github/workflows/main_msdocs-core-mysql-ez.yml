@@ -31,8 +31,11 @@ jobs:
       - name: dotnet install ef
         run: dotnet tool install -g dotnet-ef
 
-      #- name: dotnet generate migration
-      #  run: dotnet ef migrations bundle -p DotNetCoreSqlDb/DotNetCoreSqlDb.csproj -o ${{env.DOTNET_ROOT}}/myapp/migrate
+      - name: start mysql
+        run: sudo systemctl start mysql.service
+
+      - name: dotnet generate migration
+        run: dotnet ef migrations bundle -p DotNetCoreSqlDb/DotNetCoreSqlDb.csproj -o ${{env.DOTNET_ROOT}}/myapp/migrate
 
       - name: Upload artifact for deployment job
         uses: actions/upload-artifact@v2
