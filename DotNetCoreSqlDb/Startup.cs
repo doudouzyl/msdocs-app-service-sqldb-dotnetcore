@@ -30,8 +30,10 @@ namespace DotNetCoreSqlDb
             services.AddControllersWithViews();
             //services.AddDbContext<MyDatabaseContext>(options =>
             //        options.UseSqlServer(Configuration.GetConnectionString("AZURE_SQL_CONNECTIONSTRING")));
+            //services.AddDbContext<MyDatabaseContext>(options =>
+            //        options.UseMySql(ServerVersion.AutoDetect(Configuration.GetConnectionString("AZURE_MYSQL_CONNECTIONSTRING")))) ;
             services.AddDbContext<MyDatabaseContext>(options =>
-                    options.UseMySql(ServerVersion.AutoDetect(Configuration.GetConnectionString("AZURE_MYSQL_CONNECTIONSTRING")))) ;
+                    options.UseMySql(Configuration.GetConnectionString("AZURE_MYSQL_CONNECTIONSTRING"), ServerVersion.AutoDetect(Configuration.GetConnectionString("AZURE_MYSQL_CONNECTIONSTRING"))));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
