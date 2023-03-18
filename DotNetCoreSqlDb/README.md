@@ -1,6 +1,5 @@
 # Project Name
-ASP.NET Core TODO List Sample App with MySQL 8.0 Flexible Server
-Tutorial: Deploy an ASP.NET Core and Azure SQL Database app to Azure App Service
+Tutorial: Deploy an ASP.NET Core and Azure SQL Database app to Azure App Service - ASP.NET Core TODO List Sample App with MySQL 8.0 Flexible Server
 
 ## Changes
 1. Updated to use .NET 7
@@ -17,10 +16,13 @@ AZURE_MYSQL_CONNECTIONSTRING - will be used for MySQL db server connection
 
 ### Installation
 Tested on Ubuntu
+
+```bash
 dotnet build --configuration Release
 dotnet publish -c Release
 dotnet tool install --global dotnet-ef
 dotnet ef migrations add InitialCreate
+```
 
 ### GitHub actions for generating migration boundle 
 
@@ -34,5 +36,8 @@ dotnet ef migrations add InitialCreate
         run: dotnet ef migrations bundle --verbose --self-contained -p DotNetCoreSqlDb/DotNetCoreSqlDb.csproj -o ${{env.DOTNET_ROOT}}/myapp/migrate
 
 ### Misc
-To connect your MySQL 8.0 Flexible Server using MySQL client(from a VM) 
+To connect your MySQL 8.0 Flexible Server using MySQL client(from a VM)
+
+```bash
  mysql -h xxx.mysql.database.azure.com -u xxxUserNamexxx -p --ssl-mode=REQUIRED --ssl-ca=/home/azureuser/<your_downloaded_cert>.pem
+```
