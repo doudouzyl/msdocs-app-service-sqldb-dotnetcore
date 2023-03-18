@@ -5,10 +5,11 @@ Tutorial: Deploy an ASP.NET Core and Azure SQL Database app to Azure App Service
 1. Updated to use .NET 7
 2. Updated to use MySQL 8.0 Flexible Server
 3. Use the following packages:
-    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="7.0.4" />
-    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="7.0.4">
-    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="7.0.4">
-    <PackageReference Include="Pomelo.EntityFrameworkCore.MySql" Version="7.0.0" />
+- "Microsoft.EntityFrameworkCore" Version="7.0.4"
+- "Microsoft.EntityFrameworkCore.Design" Version="7.0.4"
+- "Microsoft.EntityFrameworkCore.Tools" Version="7.0.4"
+- "Pomelo.EntityFrameworkCore.MySql" Version="7.0.0"
+
 4. Build the project on a VM with access to MySQL server and regenerate the migration classes.
 
 ### Configuration
